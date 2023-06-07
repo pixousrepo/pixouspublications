@@ -1,15 +1,77 @@
 ---
+import Layout from '../layouts/default.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+    <div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
+        <div class="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
+            aria-hidden="true"></div>
+        <div class="mx-auto max-w-7xl px-6 py-20 sm:py-32 lg:px-8">
+            <div
+                class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
+                <h1
+                    class="max-w-2xl text-4xl font-serif font-bold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto">
+                    Journal
+                    of Applied
+                    Engineering
+                    and
+                    Science
+                    (JAES)</h1>
+                <div class="flex flex-col gap-4 mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
+                    <p class="text-lg leading-8 text-gray-600">Journal of Applied Engineering and Science'(JAES) is an
+                        international
+                        peer
+                        reviewed journal
+                        publishing under Pixous Publications. The journal aims to present innovative insights in the
+                        field
+                        of engineering and science.</p>
+                    <p class="text-lg leading-8 text-gray-600">The scope of Journal of Applied Engineering and
+                        Science
+                        includes publishing original
+                        research
+                        articles, review articles, case studies, and other scholarly works related to a particular
+                        field
+                        or
+                        disciplines. The scope of the Journal of Applied Engineering and Science includes, but is
+                        not
+                        limited to:</p>
+                    <ul
+                        class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  text-base font-bold text-violet-900">
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">Signal
+                            and
+                            Image
+                            Analysis</li>
+
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">Computer
+                            Graphics and
+                            Vision</li>
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">Customer
+                            Relationship Management</li>
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">
+                            Artificial
+                            Intelligence
+                        </li>
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">Computer
+                            Security and
+                            Safety</li>
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">Medical,
+                            Multimedia
+                        </li>
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">
+                            Industrial
+                            and
+                            other
+                            Applications</li>
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">
+                            Knowing Machines</li>
+                        <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">
+                            Emerging advances in IT and new application</li>
+                    </ul>
+                </div>
+                <img src="/images/journal-cover.jpeg" alt=""
+                    class="mt-10 mx-auto w-full max-w-sm rounded-2xl object-cover sm:mt-16 lg:mt-0 xl:row-span-2 xl:row-end-2 xl:mt-36">
+            </div>
+        </div>
+        <div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"></div>
+    </div>
+</Layout>
