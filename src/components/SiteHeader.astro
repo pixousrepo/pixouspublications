@@ -1,5 +1,8 @@
 ---
+import clsx from "clsx";
 import MobNav from "./MobNav";
+import navitems from "../data/navitems";
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <header class="absolute inset-x-0 top-0 z-50">
@@ -14,30 +17,19 @@ import MobNav from "./MobNav";
       </a>
     </div>
     <div class="hidden lg:flex lg:gap-x-12 font-serif">
-      <a
-        href="/authors-information"
-        class="block border-b-2 border-transparent hover:border-violet-500 text-sm font-semibold leading-6 text-gray-900"
-      >
-        Authors' Infomation
-      </a>
-      <a
-        href="/peer-review-policy"
-        class="block border-b-2 border-transparent hover:border-violet-500 text-sm font-semibold leading-6 text-gray-900"
-      >
-        Peer Review Policy
-      </a>
-      <a
-        href="/editorial-board"
-        class="block border-b-2 border-transparent hover:border-violet-500 text-sm font-semibold leading-6 text-gray-900"
-      >
-        Editorial Board
-      </a>
-      <a
-        href="/archives"
-        class="block border-b-2 border-transparent hover:border-violet-500 text-sm font-semibold leading-6 text-gray-900"
-      >
-        Archives
-      </a>
+      {
+        navitems.map((item) => (
+          <a
+            href={item.path}
+            class={clsx(
+              "block border-b-2 border-transparent hover:border-violet-500 text-sm font-semibold leading-6 text-gray-900",
+              pathname === item.path && "border-violet-500"
+            )}
+          >
+            {item.label}
+          </a>
+        ))
+      }
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a

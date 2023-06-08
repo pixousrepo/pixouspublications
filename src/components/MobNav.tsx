@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import navitems from "../data/navitems";
 import clsx from "clsx";
 const MobNav = () => {
   const [isOpen, setOpen] = useState(false);
@@ -67,30 +68,14 @@ const MobNav = () => {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <a
-                  href="/authors-information"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Authors' Information
-                </a>
-                <a
-                  href="/peer-review-policy"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Peer Review Policy
-                </a>
-                <a
-                  href="/editorial-board"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Editorial Board
-                </a>
-                <a
-                  href="/archives"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Archives
-                </a>
+                {navitems.map((item) => (
+                  <a
+                    href={item.path}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    {item.label}
+                  </a>
+                ))}
               </div>
               <div className="py-6">
                 <a
