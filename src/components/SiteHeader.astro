@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import MobNav from "./MobNav";
 import navitems from "../data/navitems";
-const pathname = new URL(Astro.request.url).pathname;
+const pathname = Astro.url.pathname.replace(/\/$/, "");
 ---
 
 <header class="absolute inset-x-0 top-0 z-50">
