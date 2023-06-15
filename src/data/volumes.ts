@@ -2,6 +2,7 @@ export default {
   1: {
     year: "2023",
     path: "/issues/1/",
+    published: "16.03.2023",
     entries: [
       {
         heading:

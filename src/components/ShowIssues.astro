@@ -1,0 +1,29 @@
+---
+const { volume } = Astro.props;
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  {
+    volume &&
+      volume.entries.map((item) => (
+        <div class="flex bg-white rounded-xl border border-violet-100 hover:shadow-lg transition-shadow">
+          <a
+            target="_blank"
+            href={`${volume.path}${item.fileName}`}
+            class="flex flex-col w-full justify-between divide-y divide-gray-200"
+          >
+            <div class="flex flex-col gap-4 p-5">
+              <p class="text-violet-800 font-semibold">{item.heading}</p>
+              <p class="text-sm">{item.authors.join(", ")}</p>
+            </div>
+            <div class="flex justify-end px-5 py-2">
+              <div class="flex items-center gap-1 font-bold text-sm uppercase text-violet-800">
+                <img class="w-8" src="/images/pdf-paper.png" alt="" />
+                <span>PDF</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      ))
+  }
+</div>

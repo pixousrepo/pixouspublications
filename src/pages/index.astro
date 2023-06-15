@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/default.astro";
+import volumes from "../data/volumes";
+import ShowIssues from "../components/ShowIssues.astro";
+const no = Object.values(volumes).length;
+const volume = volumes[no];
 ---
 
 <Layout>
@@ -113,160 +117,10 @@ import Layout from "../layouts/default.astro";
               <p class="pl-4"><b>Published:</b> 16.03.2023</p>
             </div>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <div
-              class="flex bg-white rounded-xl border border-violet-100 hover:shadow-lg transition-shadow"
-            >
-              <a
-                target="_blank"
-                href="/volumes/1/post-covid.pdf"
-                class="flex flex-col w-full justify-between divide-y divide-gray-200"
-              >
-                <div class="flex flex-col gap-4 p-5">
-                  <p class="text-violet-800 font-semibold">
-                    Impact of Advance Technologies Over Reviving Companies: Post
-                    Covid
-                  </p>
-                  <p class="text-sm">Dr. Aswathy S U, Ansu Liz Thomas</p>
-                </div>
-                <div class="flex justify-end px-5 py-2">
-                  <div
-                    class="flex items-center gap-1 font-bold text-sm uppercase text-violet-800"
-                  >
-                    <img class="w-8" src="/images/pdf-paper.png" alt="" />
-                    <span>PDF</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div
-              class="flex flex-row bg-white rounded-xl border border-violet-100 hover:shadow-lg transition-shadow"
-            >
-              <a
-                target="_blank"
-                href="/volumes/1/5g-wireless.pdf"
-                class="flex flex-col w-full justify-between divide-y divide-gray-200"
-              >
-                <div class="flex flex-col gap-4 p-5">
-                  <p class="text-violet-800 font-semibold">
-                    Study of Recent 5G Wireless Technology Developments
-                  </p>
-                  <p class="text-sm">Rahul Thomas</p>
-                </div>
-                <div class="flex justify-end px-5 py-2">
-                  <div
-                    class="flex items-center gap-1 font-bold text-sm uppercase text-violet-800"
-                  >
-                    <img class="w-8" src="/images/pdf-paper.png" alt="" />
-                    <span>PDF</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div
-              class="flex bg-white rounded-xl border border-violet-100 hover:shadow-lg transition-shadow"
-            >
-              <a
-                target="_blank"
-                href="/volumes/1/brain-tumor.pdf"
-                class="flex flex-col w-full justify-between divide-y divide-gray-200"
-              >
-                <div class="flex flex-col gap-4 p-5">
-                  <p class="text-violet-800 font-semibold">
-                    A Review of Brain Tumor Segmentation of MRI Image Using
-                    Machine Learning Algorithm
-                  </p>
-                  <p class="text-sm">Rroan M</p>
-                </div>
-                <div class="flex justify-end px-5 py-2">
-                  <div
-                    class="flex items-center gap-1 font-bold text-sm uppercase text-violet-800"
-                  >
-                    <img class="w-8" src="/images/pdf-paper.png" alt="" />
-                    <span>PDF</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div
-              class="flex bg-white rounded-xl border border-violet-100 hover:shadow-lg transition-shadow"
-            >
-              <a
-                target="_blank"
-                href="/volumes/1/review-real.pdf"
-                class="flex flex-col w-full justify-between divide-y divide-gray-200"
-              >
-                <div class="flex flex-col gap-4 p-5">
-                  <p class="text-violet-800 font-semibold">
-                    Review-Real Time Smart Energy Meter and Load Automation
-                    Using IoT
-                  </p>
-                  <p class="text-sm">Ansu Liz Thomas</p>
-                </div>
-                <div class="flex justify-end px-5 py-2">
-                  <div
-                    class="flex items-center gap-1 font-bold text-sm uppercase text-violet-800"
-                  >
-                    <img class="w-8" src="/images/pdf-paper.png" alt="" />
-                    <span>PDF</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div
-              class="flex bg-white rounded-xl border border-violet-100 hover:shadow-lg transition-shadow"
-            >
-              <a
-                target="_blank"
-                href="/volumes/1/multi-point-cloud.pdf"
-                class="flex flex-col w-full justify-between divide-y divide-gray-200"
-              >
-                <div class="flex flex-col gap-4 p-5">
-                  <p class="text-violet-800 font-semibold">
-                    Multi-Point Data Security Mechanism to Facilitate Secure
-                    Cloud Data Storage Solutions
-                  </p>
-                  <p class="text-sm">Dr. Aswathy S U</p>
-                </div>
-                <div class="flex justify-end px-5 py-2">
-                  <div
-                    class="flex items-center gap-1 font-bold text-sm uppercase text-violet-800"
-                  >
-                    <img class="w-8" src="/images/pdf-paper.png" alt="" />
-                    <span>PDF</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div
-              class="flex bg-white rounded-xl border border-violet-100 hover:shadow-lg transition-shadow"
-            >
-              <a
-                target="_blank"
-                href="/volumes/1/deep-learning.pdf"
-                class="flex flex-col w-full justify-between divide-y divide-gray-200"
-              >
-                <div class="flex flex-col gap-4 p-5">
-                  <p class="text-violet-800 font-semibold">
-                    Implementation of Optimized Deep Learning-Based Early Flood
-                    Detection Management System and Avoidance System
-                  </p>
-                  <p class="text-sm">Bibithamol Baby</p>
-                </div>
-                <div class="flex justify-end px-5 py-2">
-                  <div
-                    class="flex items-center gap-1 font-bold text-sm uppercase text-violet-800"
-                  >
-                    <img class="w-8" src="/images/pdf-paper.png" alt="" />
-                    <span>PDF</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          <ShowIssues volume={volume} />
           <div class="flex justify-center">
             <a
-              href="/volume-1"
+              href={`/volumes/${no}`}
               class="text-sm font-semibold leading-6 text-violet-800"
               >More <span aria-hidden="true">→</span></a
             >
