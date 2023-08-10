@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/studio.astro";
+export const prerender = false;
+---
+
+<Layout>
+  <div id="studio" class="h-full"></div>
+</Layout>
+
+<script>
+  import config from "../../../sanity.config";
+  import { renderStudio } from "sanity";
+
+  renderStudio(document.getElementById("studio"), config);
+</script>

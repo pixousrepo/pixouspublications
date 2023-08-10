@@ -1,0 +1,28 @@
+---
+import volumes from "../../data/volumes";
+import ShowIssues from "../ShowIssues.astro";
+
+const no = Object.values(volumes).length;
+const volume = volumes[no];
+---
+
+<div class="py-10 space-y-10">
+  <div class="space-y-1">
+    <h1 class="text-3xl sm:text-4xl font-bold text-violet-950">
+      Current Issue
+    </h1>
+    <div class="flex text-sm">
+      <p class="px-4"><b>Vol. 1 (2023)</b></p>
+      <p class="font-bold text-violet-400">|</p>
+      <p class="pl-4"><b>Published:</b> 20.05.2023</p>
+    </div>
+  </div>
+  <ShowIssues volume={volume} />
+  <div class="flex justify-center">
+    <a
+      href={`/volumes/${no}`}
+      class="text-sm font-semibold leading-6 text-violet-800"
+      >More <span aria-hidden="true">→</span></a
+    >
+  </div>
+</div>

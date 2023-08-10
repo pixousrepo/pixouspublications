@@ -15,8 +15,8 @@ const SiteFooter = () => {
           <div className="py-5 text-gray-500">
             <p>Pixous publication</p>
             <p>TC 31/298</p>
-            <p>Building No: 170, Trivandrum,</p>
-            <p>Kerala 695024</p>
+            <p>Building No: 170, Nr. Airport domestic terminal,</p>
+            <p>Trivandrum, Kerala 695024</p>
             <p>Email: editor@pixouspublication.com</p>
           </div>
         </div>

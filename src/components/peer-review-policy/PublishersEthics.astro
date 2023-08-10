@@ -1,0 +1,20 @@
+---
+import { PortableText } from "astro-portabletext";
+import HeadingSubPage from "../blocks/HeadingSubPage.astro";
+import ulist1 from "../blocks/ulist1.astro";
+import MainListItem from "../blocks/MainListItem.astro";
+
+const { data } = Astro.props;
+const ptText = data.blocks[0].richText;
+const ptComponents = {
+  block: {
+    h1: HeadingSubPage,
+  },
+  list: ulist1,
+  listItem: MainListItem,
+};
+---
+
+<div>
+  <PortableText value={ptText} components={ptComponents} />
+</div>

@@ -1,0 +1,19 @@
+---
+import { PortableText } from "astro-portabletext";
+import { getSectionData } from "../../utilities/sanity-utilities";
+import Heading3 from "../blocks/Heading3.astro";
+
+const { pageData } = Astro.props;
+const sectionData = getSectionData(pageData, "open-access-statement");
+
+const openAccess = sectionData.blocks[0].richText;
+const openAccessComponents = {
+  block: {
+    h1: Heading3,
+  },
+};
+---
+
+<div class="flex flex-col gap-4 flex-1 leading-8">
+  <PortableText value={openAccess} components={openAccessComponents} />
+</div>

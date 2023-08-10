@@ -1,0 +1,27 @@
+---
+import { PortableText } from "astro-portabletext";
+import { getSectionData } from "../../utilities/sanity-utilities";
+import Heading3 from "../blocks/Heading3.astro";
+import Bold from "../blocks/Bold.astro";
+import ulist1 from "../blocks/ulist1.astro";
+import MainListItem from "../blocks/MainListItem.astro";
+
+const { pageData } = Astro.props;
+const sectionData = getSectionData(pageData, "aim-and-scope");
+
+const aimScope = sectionData.blocks[0].richText;
+const aimScopeComponents = {
+  block: {
+    h1: Heading3,
+  },
+  list: ulist1,
+  listItem: MainListItem,
+  mark: {
+    strong: Bold,
+  },
+};
+---
+
+<div class="flex flex-col gap-4 flex-1 leading-8">
+  <PortableText value={aimScope} components={aimScopeComponents} />
+</div>

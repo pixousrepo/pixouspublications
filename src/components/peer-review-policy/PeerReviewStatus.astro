@@ -1,0 +1,68 @@
+---
+import { PortableText } from "astro-portabletext";
+import NormalText from "../blocks/NormalText.astro";
+import clsx from "clsx";
+import Icon from '../Icon.astro'
+
+const { data } = Astro.props;
+const statusList = data.blocks[0].list;
+const ptText = data.blocks[1].richText;
+
+const getIconAndStyles = (slug)=>{
+    switch (slug) {
+        case "peer-review-accepted":
+            return {icon: "completed", sytle: "bg-green-50 text-green-700"}
+        case "peer-review-accepted-with-minor-correction":
+            return {icon: "agreed", sytle: "bg-purple-50 text-purple-700"}
+        case "peer-review-revisions-required":
+            return {icon: "retry", sytle: "bg-blue-50 text-blue-700"}
+        case "peer-review-resubmit-for-review":
+            return {icon: "versions", sytle: "bg-yellow-50 text-yellow-700"}
+        case "peer-review-rejected":
+            return {icon: "revert", sytle: "bg-rose-50 text-rose-700"}
+        default:
+        return {icon: "revert", sytle: "bg-black text-black"}
+    }
+}
+
+const ptComponents = {
+  block: {
+    normal: NormalText,
+  },
+};
+---
+
+<div>
+  <h2 class="mt-16 mb-6 text-2xl font-bold tracking-tight text-gray-900">
+    {data.title}
+  </h2>
+
+  <div
+    class="divide-y divide-gray-200 overflow-hidden rounded-lg shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0"
+  >
+  {statusList.map(status=> <div
+    class="sm:rounded-bl-lg group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500"
+  >
+    <div>
+      <span
+        class={clsx(getIconAndStyles(status.slug.current).sytle,"inline-flex rounded-lg p-3  ring-4 ring-white")}
+      >
+      <Icon icon={getIconAndStyles(status.slug.current).icon} />
+      </span>
+    </div>
+    <div class="mt-8">
+      <h3 class="text-base font-semibold leading-6 text-gray-900">
+        <a href="#" class="focus:outline-none">
+          <!-- Extend touch target to entire panel -->
+          <span class="absolute inset-0" aria-hidden="true"></span>
+          {status.title}
+        </a>
+      </h3>
+      <p class="mt-2 text-sm text-gray-500">
+        {status.text}
+      </p>
+    </div>
+  </div>)}
+  </div>
+  <PortableText value={ptText} components={ptComponents} />
+</div>
