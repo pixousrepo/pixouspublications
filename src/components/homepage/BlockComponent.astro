@@ -1,0 +1,35 @@
+---
+import HeroTitle from "../homepage/HeroTitle.astro";
+import HeroSummary from "../homepage/HeroSummary.astro";
+import ScopeList from "../homepage/ScopeList.astro";
+import HeroImage from "../homepage/HeroImage.astro";
+import { getBlockData } from "../../utilities/sanity-utilities";
+
+const { slug, sectionData } = Astro.props;
+console.log(slug);
+console.log(sectionData);
+console.log("got it");
+
+function convertToCamelCase(inputText) {
+  return inputText.replace(/-([a-z])/g, (match, letter) =>
+    letter.toUpperCase()
+  );
+}
+
+const sectionBlocks = {
+  journalOfAppliedEngineeringAndScienceJaes: HeroTitle,
+  heroSummary: HeroSummary,
+  scopeOfJournal: ScopeList,
+  journalCover: HeroImage,
+};
+
+function getBlock(slug) {
+  const block = convertToCamelCase(slug);
+  return sectionBlocks[block];
+}
+
+const Component = getBlock(slug);
+const blockData = getBlockData(sectionData, slug);
+---
+
+<Component slot={slug} blockData={blockData} />

@@ -1,3 +1,4 @@
+import archiveComponent from "./components/archiveComponent";
 import imagecomponent from "./components/imagecomponent";
 import linkcomponent from "./components/linkcomponent";
 import listcomponent from "./components/listcomponent";
@@ -18,4 +19,5 @@ export const schemaTypes = [
   linkcomponent,
   listcomponent,
   personComponent,
+  archiveComponent,
 ];

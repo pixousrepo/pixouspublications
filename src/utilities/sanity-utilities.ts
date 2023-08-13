@@ -29,3 +29,7 @@ export async function getPageData(slug) {
 export function getSectionData(pageData, slug) {
   return pageData.sections.filter((s) => s.slug.current === slug)[0];
 }
+
+export function getBlockData(sectionData, slug) {
+  return sectionData.blocks.filter((b) => b.slug.current === slug)[0];
+}

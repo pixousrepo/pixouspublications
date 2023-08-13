@@ -1,50 +1,25 @@
 ---
-import { PortableText } from "astro-portabletext";
-import SummaryText from "./SummaryText.astro";
-import { getSectionData, urlForImage } from "../../utilities/sanity-utilities";
+import HeroLayout from "./HeroLayout.astro";
+import HeroTitle from "./HeroTitle.astro";
+import HeroSummary from "./HeroSummary.astro";
+import ScopeList from "./ScopeList.astro";
+import HeroImage from "./HeroImage.astro";
 
-const { pageData } = Astro.props;
-const sectionData = getSectionData(pageData, "hero-section");
+import { getBlockData } from "../../utilities/sanity-utilities";
 
-const heroTitle = sectionData.blocks[0].title;
-const heroSummary = sectionData.blocks[1].richText;
-const heroScopeList = sectionData.blocks[2].list;
-const journalCover = sectionData.blocks[3].image;
+const { data } = Astro.props;
 
-const summaryComponents = {
-  block: {
-    normal: SummaryText,
-  },
-};
+function getData(slug) {
+  return getBlockData(data, slug);
+}
 ---
 
-<div
-  class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8"
->
-  <h1
-    class="max-w-2xl text-4xl font-serif font-bold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto"
-  >
-    {heroTitle}
-  </h1>
-  <div
-    class="flex flex-col gap-4 mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1"
-  >
-    <PortableText value={heroSummary} components={summaryComponents} />
-    <ul
-      class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-base font-bold text-violet-900"
-    >
-      {
-        heroScopeList.map((item) => (
-          <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">
-            {item.title}
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-  <img
-    src={urlForImage(journalCover).url()}
-    alt=""
-    class="mt-10 mx-auto w-full max-w-sm rounded-2xl object-cover sm:mt-16 lg:mt-0 xl:row-span-2 xl:row-end-2 xl:mt-36"
+<HeroLayout>
+  <HeroTitle
+    slot="title"
+    blockData={getData("journal-of-applied-engineering-and-science-jaes")}
   />
-</div>
+  <HeroSummary slot="summary" blockData={getData("hero-summary")} />
+  <ScopeList slot="scope-list" blockData={getData("scope-of-journal")} />
+  <HeroImage slot="cover-image" blockData={getData("journal-cover")} />
+</HeroLayout>

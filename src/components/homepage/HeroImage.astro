@@ -1,0 +1,10 @@
+---
+import { urlForImage } from "../../utilities/sanity-utilities";
+const { blockData } = Astro.props;
+---
+
+<img
+  src={urlForImage(blockData.image).url()}
+  alt=""
+  class="mt-10 mx-auto w-full max-w-sm rounded-2xl object-cover sm:mt-16 lg:mt-0 xl:row-span-2 xl:row-end-2 xl:mt-36"
+/>

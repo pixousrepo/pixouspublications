@@ -1,0 +1,23 @@
+---
+import { PortableText } from "astro-portabletext";
+import Heading3 from "../blocks/Heading3.astro";
+import Bold from "../blocks/Bold.astro";
+import ulist1 from "../blocks/ulist1.astro";
+import MainListItem from "../blocks/MainListItem.astro";
+
+const { blockData } = Astro.props;
+
+const aimScope = blockData.richText;
+const aimScopeComponents = {
+  block: {
+    h1: Heading3,
+  },
+  list: ulist1,
+  listItem: MainListItem,
+  mark: {
+    strong: Bold,
+  },
+};
+---
+
+<PortableText value={aimScope} components={aimScopeComponents} />

@@ -51,6 +51,11 @@ export default defineType({
           name: "person",
           to: { type: "person" },
         },
+        {
+          type: "reference",
+          name: "archivecomponent",
+          to: { type: "archive" },
+        },
       ],
     }),
   ],

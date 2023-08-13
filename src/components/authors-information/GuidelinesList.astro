@@ -1,0 +1,45 @@
+---
+import { PortableText } from "astro-portabletext";
+import AccentListItem from "../../components/blocks/AccentListItem.astro";
+import ulist2 from "../../components/blocks/ulist2.astro";
+
+const { data } = Astro.props;
+const guideLinesComps = {
+  list: ulist2,
+  listItem: AccentListItem,
+};
+---
+
+<div class="mt-6 border-t border-gray-100">
+  <dl class="divide-y divide-gray-100">
+    {
+      data.list.map((block) => (
+        <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-900">
+            {block.title}
+          </dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+            {block._type === "textComponent" ? (
+              block.text
+            ) : block._type === "richTextComponent" ? (
+              <PortableText
+                value={block.richText}
+                components={guideLinesComps}
+              />
+            ) : block._type === "linkComponent" ? (
+              <a
+                target="_blank"
+                href={block.url}
+                class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Click to download
+              </a>
+            ) : (
+              <p>cool</p>
+            )}
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</div>

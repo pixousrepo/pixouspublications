@@ -3,7 +3,7 @@ import { PortableText } from "astro-portabletext";
 import NormalText from "../blocks/NormalText.astro";
 import clsx from "clsx";
 import Icon from '../Icon.astro'
-
+import Link from "../blocks/Link.astro"
 const { data } = Astro.props;
 const statusList = data.blocks[0].list;
 const ptText = data.blocks[1].richText;
@@ -29,10 +29,14 @@ const ptComponents = {
   block: {
     normal: NormalText,
   },
+  mark:{
+    link: Link
+  }
 };
 ---
 
-<div>
+<section>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
   <h2 class="mt-16 mb-6 text-2xl font-bold tracking-tight text-gray-900">
     {data.title}
   </h2>
@@ -66,3 +70,4 @@ const ptComponents = {
   </div>
   <PortableText value={ptText} components={ptComponents} />
 </div>
+</section>

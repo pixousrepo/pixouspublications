@@ -4,10 +4,8 @@ import HeadingSubPage from "../blocks/HeadingSubPage.astro";
 import NormalText from "../blocks/NormalText.astro";
 import ulist3 from "../blocks/ulist3.astro";
 import ListItemLevel3 from "../blocks/ListItemLevel3.astro";
-
-const { data } = Astro.props;
-const ptText = data.blocks[0].richText;
-const ptComponents = {
+const { data, components } = Astro.props;
+const defaultComponents = {
   block: {
     h1: HeadingSubPage,
     normal: NormalText,
@@ -17,6 +15,7 @@ const ptComponents = {
 };
 ---
 
-<div>
-  <PortableText value={ptText} components={ptComponents} />
-</div>
+<PortableText
+  value={data.richText}
+  components={{ ...defaultComponents, ...components }}
+/>

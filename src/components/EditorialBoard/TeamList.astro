@@ -1,0 +1,52 @@
+---
+const { data } = Astro.props;
+---
+
+<div class="pt-8">
+  <h3
+    class="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl pb-4 sm:pb-6"
+  >
+    {data.title}
+  </h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+    {
+      data.list.map((person) => (
+        <div class="rounded-lg bg-white shadow border-l-4 border-violet-500">
+          <div class="flex flex-col p-6">
+            <div class="flex items-center space-x-3">
+              <h3 class="truncate text-sm font-bold text-gray-900">
+                {person.name}
+              </h3>
+            </div>
+            {person.institution ? (
+              <p class="mt-1 truncate text-sm text-gray-500">
+                {person.institution}
+              </p>
+            ) : null}
+            {person.address1 ? (
+              <p class="mt-1 truncate text-sm text-gray-500">
+                {person.address1}
+              </p>
+            ) : null}
+            {person.address2 ? (
+              <p class="mt-1 truncate text-sm text-gray-500">
+                {person.address2}
+              </p>
+            ) : null}
+            {person.email ? (
+              <p class="mt-1 truncate text-sm text-gray-500">
+                Email:{" "}
+                <a
+                  href={`mailto:${person.email}`}
+                  class="text-violet-800 hover:underline"
+                >
+                  {person.email}
+                </a>
+              </p>
+            ) : null}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

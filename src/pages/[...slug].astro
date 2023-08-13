@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/subpage.astro";
+import { getPageData } from "../utilities/sanity-utilities";
+import { getComponent } from "../utilities/page-utilities";
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: "submit-paper" } },
+    { params: { slug: "authors-information" } },
+    { params: { slug: "peer-review-policy" } },
+    { params: { slug: "archives" } },
+    { params: { slug: "editorial-board" } },
+  ];
+}
+
+const { slug } = Astro.params;
+const { title, sections } = await getPageData(slug);
+---
+
+<Layout title={title}>
+  <main>
+    {
+      sections.map((section) => {
+        const Component = getComponent(section.slug.current);
+        return <Component data={section} />;
+      })
+    }
+  </main>
+</Layout>

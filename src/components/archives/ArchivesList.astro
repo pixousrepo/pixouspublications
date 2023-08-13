@@ -1,0 +1,30 @@
+---
+import archives from "../../data/archives";
+const { data } = Astro.props;
+---
+
+<ul role="list" class="divide-y divide-gray-100">
+  {
+    data.list.map((item) => (
+      <li class="hover:shadow-lg transition-shadow">
+        <a href={item.path} class="flex justify-between gap-x-6 py-5">
+          <div class="flex gap-x-4">
+            <img
+              class="flex-none border border-violet-200"
+              src="/images/journal-cover-thumb.jpg"
+              alt=""
+            />
+            <div class="min-w-0 flex-auto">
+              <p class="text-lg font-semibold leading-6 text-violet-800">
+                {item.label}
+              </p>
+              <p class="mt-1 truncate text-base leading-5 text-black">
+                <b>Published:</b> {item.published}
+              </p>
+            </div>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>

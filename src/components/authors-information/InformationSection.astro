@@ -1,0 +1,12 @@
+---
+import GuidelinesLayout from "./GuidelinesLayout.astro";
+import GuidelinesIntro from "./GuidelinesIntro.astro";
+import GuidelinesList from "./GuidelinesList.astro";
+
+const { data } = Astro.props;
+---
+
+<GuidelinesLayout>
+  <GuidelinesIntro data={data.blocks[0]} />
+  <GuidelinesList data={data.blocks[1]} />
+</GuidelinesLayout>

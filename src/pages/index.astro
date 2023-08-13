@@ -1,45 +1,18 @@
 ---
 import Layout from "../layouts/default.astro";
-import HeroSection from "../components/homepage/HeroSection.astro";
+import { getComponent } from "../utilities/page-utilities";
 import { getPageData } from "../utilities/sanity-utilities";
-import CurrentIssues from "../components/homepage/CurrentIssues.astro";
-import AimScope from "../components/homepage/AimScope.astro";
-import OpenAccessStatement from "../components/homepage/OpenAccessStatement.astro";
-const pageData = await getPageData("home-page");
+
+const { sections } = await getPageData("home-page");
 ---
 
 <Layout>
   <main>
-    <section
-      class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14"
-    >
-      <div
-        class="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
-        aria-hidden="true"
-      >
-      </div>
-      <div class="mx-auto max-w-7xl px-6 py-20 sm:py-32 lg:px-8">
-        <HeroSection pageData={pageData} />
-      </div>
-      <div
-        class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"
-      >
-      </div>
-    </section>
-    <section class="home-gradient-bg">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <CurrentIssues />
-      </div>
-    </section>
-    <section>
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-        <AimScope pageData={pageData} />
-      </div>
-    </section>
-    <section>
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-        <OpenAccessStatement pageData={pageData} />
-      </div>
-    </section>
+    {
+      sections.map((section) => {
+        const Component = getComponent(section.slug.current);
+        return <Component data={section} />;
+      })
+    }
   </main>
 </Layout>

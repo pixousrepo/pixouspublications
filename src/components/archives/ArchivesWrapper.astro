@@ -1,0 +1,10 @@
+---
+import ArchivesLayout from "./ArchivesLayout.astro";
+import ArchivesList from "./ArchivesList.astro";
+
+const { data } = Astro.props;
+---
+
+<ArchivesLayout>
+  <ArchivesList data={data.blocks[0]} />
+</ArchivesLayout>

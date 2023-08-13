@@ -1,0 +1,13 @@
+---
+import { PortableText } from "astro-portabletext";
+import SummaryText from "../homepage/SummaryText.astro";
+
+const { blockData } = Astro.props;
+const summaryComponents = {
+  block: {
+    normal: SummaryText,
+  },
+};
+---
+
+<PortableText value={blockData.richText} components={summaryComponents} />

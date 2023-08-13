@@ -1,0 +1,20 @@
+---
+import PortableTextBlock from "../peer-review-policy/PortableTextBlock.astro";
+import ArchivesLayout from "../archives/ArchivesLayout.astro";
+import CenterText from "../blocks/CenterText.astro";
+import Link from "../blocks/Link.astro";
+
+const { data } = Astro.props;
+const components = {
+  block: {
+    normal: CenterText,
+  },
+  mark: {
+    link: Link,
+  },
+};
+---
+
+<ArchivesLayout>
+  <PortableTextBlock data={data.blocks[0]} components={components} />
+</ArchivesLayout>

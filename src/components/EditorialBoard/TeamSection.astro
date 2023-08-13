@@ -1,0 +1,10 @@
+---
+import TeamLayout from "./TeamLayout.astro";
+import TeamList from "./TeamList.astro";
+
+const { data } = Astro.props;
+---
+
+<TeamLayout>
+  <TeamList data={data.blocks[0]} />
+</TeamLayout>

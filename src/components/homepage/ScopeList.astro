@@ -1,0 +1,15 @@
+---
+const { blockData } = Astro.props;
+---
+
+<ul
+  class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-base font-bold text-violet-900"
+>
+  {
+    blockData.list.map((item) => (
+      <li class="grid content-center bg-violet-200 text-black p-2 rounded-lg text-center">
+        {item.title}
+      </li>
+    ))
+  }
+</ul>

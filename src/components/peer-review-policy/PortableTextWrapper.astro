@@ -1,0 +1,10 @@
+---
+import SimpleVerticalLayout from "./SimpleVerticalLayout.astro";
+import PortableTextBlock from "./PortableTextBlock.astro";
+
+const { data } = Astro.props;
+---
+
+<SimpleVerticalLayout>
+  <PortableTextBlock data={data.blocks[0]} />
+</SimpleVerticalLayout>
