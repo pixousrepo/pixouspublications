@@ -24,7 +24,7 @@ const SiteFooter = () => {
       <div className="bg-neutral-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="py-8 text-sm text-center">
-            Pixous Publications © 2023. All rights reserved.
+            Pixous Publications © 2023. All rights reservedd.
           </p>
         </div>
       </div>
