@@ -2,8 +2,9 @@
 import { PortableText } from "astro-portabletext";
 import NormalText from "../blocks/NormalText.astro";
 import clsx from "clsx";
-import Icon from '../Icon.astro'
+import {Icon} from 'astro-icon'
 import Link from "../blocks/Link.astro"
+
 const { data } = Astro.props;
 const statusList = data.blocks[0].list;
 const ptText = data.blocks[1].richText;
@@ -51,7 +52,7 @@ const ptComponents = {
       <span
         class={clsx(getIconAndStyles(status.slug.current).sytle,"inline-flex rounded-lg p-3  ring-4 ring-white")}
       >
-      <Icon icon={getIconAndStyles(status.slug.current).icon} />
+      <Icon size={24} name={getIconAndStyles(status.slug.current).icon} />
       </span>
     </div>
     <div class="mt-8">
