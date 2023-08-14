@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/studio.astro";
-export const prerender = false;
+export async function getStaticPaths() {
+  return [{ params: { slug: "desk" } }];
+}
 ---
 
 <Layout>
