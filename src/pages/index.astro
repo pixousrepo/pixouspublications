@@ -1,6 +1,5 @@
 ---
-import Layout from "../layouts/default.astro";
-import { getComponent } from "../utilities/page-utilities";
+import Layout, { getComponent } from "../layouts/default.astro";
 import { getPageData } from "../utilities/sanity-utilities";
 
 const { sections } = await getPageData("home-page");
