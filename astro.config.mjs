@@ -7,6 +7,7 @@ import vercelServerless from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
+    output: 'hybrid',
     build: {
         format: 'directory'
     },
@@ -16,4 +17,5 @@ export default defineConfig({
         apiVersion: "2023-08-01",
         useCdn: false
     })],
+    adapter: vercelServerless()
 });
