@@ -2,8 +2,11 @@ import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./sanity/schemas";
+import { vercelDeployTool } from "sanity-plugin-vercel-deploy";
+
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 const singletonTypes = new Set(["settings"]);
+
 const config = defineConfig({
   projectId: "t9xt5xc2",
   dataset: "production",
@@ -30,6 +33,7 @@ const config = defineConfig({
           ]),
     }),
     visionTool(),
+    vercelDeployTool(),
   ],
   schema: {
     types: schemaTypes,
