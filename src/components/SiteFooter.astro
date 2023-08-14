@@ -1,0 +1,39 @@
+---
+import { PortableText } from "astro-portabletext";
+import Link from "./blocks/Link.astro";
+import { urlForImage } from "utilities/sanity-utilities";
+const { data } = Astro.props;
+const components = {
+  mark: {
+    link: Link,
+  },
+};
+---
+
+<footer>
+  <div class="bg-neutral-100">
+    <div
+      class="py-7 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center sm:justify-between"
+    >
+      <div
+        class="text-center py-5 border-b-gray-300 border-b-[1px] sm:border-b-0 w-full sm:w-auto flex justify-center"
+      >
+        <img
+          class="w-[150px] sm:w-[170px]"
+          src={urlForImage(data.mainlogo).url()}
+          alt=""
+        />
+      </div>
+      <div class="py-5 text-gray-500">
+        <PortableText value={data.address} components={components} />
+      </div>
+    </div>
+  </div>
+  <div class="bg-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="py-8 text-sm text-center">
+        {data.copyright}
+      </p>
+    </div>
+  </div>
+</footer>

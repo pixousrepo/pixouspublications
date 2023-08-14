@@ -1,6 +1,6 @@
 import React from "react";
 
-const SiteFooter = () => {
+const SiteFooter = ({ data }) => {
   return (
     <footer>
       <div className="bg-neutral-100">

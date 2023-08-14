@@ -8,10 +8,12 @@ import textcomponent from "./components/textcomponent";
 import titletextcomponent from "./components/titletextcomponent";
 import pages from "./pages";
 import sections from "./sections";
+import settings from "./settings";
 
 export const schemaTypes = [
   pages,
   sections,
+  settings,
   titletextcomponent,
   textcomponent,
   richtextcomponent,

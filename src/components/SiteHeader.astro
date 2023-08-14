@@ -2,7 +2,9 @@
 import clsx from "clsx";
 import MobNav from "./MobNav";
 import navitems from "../data/navitems";
+import { urlForImage } from "utilities/sanity-utilities";
 const pathname = Astro.url.pathname.replace(/\/$/, "");
+const { data } = Astro.props;
 ---
 
 <header class="absolute inset-x-0 top-0 z-50">
@@ -13,7 +15,11 @@ const pathname = Astro.url.pathname.replace(/\/$/, "");
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">Pixous Publications</span>
-        <img class="h-11 w-auto" src="/images/logo.png" alt="" />
+        <img
+          class="h-11 w-auto"
+          src={urlForImage(data.mainlogo).url()}
+          alt=""
+        />
       </a>
     </div>
     <div class="hidden lg:flex lg:gap-x-12 font-serif">

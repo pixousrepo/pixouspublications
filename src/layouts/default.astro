@@ -1,6 +1,9 @@
 ---
-import SiteFooter from "../components/SiteFooter";
+import { getSettingsData } from "utilities/sanity-utilities";
+import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+
+const settings = await getSettingsData();
 ---
 
 <!DOCTYPE html>
@@ -9,13 +12,13 @@ import SiteHeader from "../components/SiteHeader.astro";
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pixous Publications</title>
+    <title>{settings.title}</title>
   </head>
   <body class="h-full">
-    <SiteHeader />
+    <SiteHeader data={settings} />
     <slot />
     <div class="h-12"></div>
-    <SiteFooter />
+    <SiteFooter data={settings} />
   </body>
 </html>
 <style is:global>

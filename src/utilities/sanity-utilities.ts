@@ -26,6 +26,11 @@ export async function getPageData(slug) {
   return getData(query);
 }
 
+export async function getSettingsData() {
+  const query = `*[_type == 'settings'][0]`;
+  return getData(query);
+}
+
 export function getSectionData(pageData, slug) {
   return pageData.sections.filter((s) => s.slug.current === slug)[0];
 }
