@@ -1,0 +1,25 @@
+---
+import HeroLayout from "@components/homepage/HeroLayout.astro";
+import HeroTitle from "@components/homepage/HeroTitle.astro";
+import HeroSummary from "@components/homepage/HeroSummary.astro";
+import ScopeList from "@components/homepage/ScopeList.astro";
+import HeroImage from "@components/homepage/HeroImage.astro";
+
+import { getBlockData } from "../../utilities/sanity-utilities";
+
+const { data } = Astro.props;
+
+function getData(slug) {
+  return getBlockData(data, slug);
+}
+---
+
+<HeroLayout>
+  <HeroTitle
+    slot="title"
+    blockData={getData("journal-of-applied-engineering-and-science-jaes")}
+  />
+  <HeroSummary slot="summary" blockData={getData("hero-summary")} />
+  <ScopeList slot="scope-list" blockData={getData("scope-of-journal")} />
+  <HeroImage slot="cover-image" blockData={getData("journal-cover")} />
+</HeroLayout>
