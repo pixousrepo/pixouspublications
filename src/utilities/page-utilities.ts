@@ -1,12 +1,12 @@
-import InformationSection from "../components/authors-information/InformationSection.astro";
-import PortableTextHomeWrapper from "../components/homepage/PortableTextHomeWrapper.astro";
-import CurrentIssues from "../components/homepage/CurrentIssues.astro";
-import Herosection from "../components/homepage/Herosection.astro";
-import PeerReviewStatus from "../components/peer-review-policy/PeerReviewStatus.astro";
-import PortableTextWrapper from "../components/peer-review-policy/PortableTextWrapper.astro";
-import TeamSection from "../components/EditorialBoard/TeamSection.astro";
-import ArchivesWrapper from "../components/archives/ArchivesWrapper.astro";
-import SubmitWrapper from "../components/submit-paper/SubmitWrapper.astro";
+import InformationSection from "@components/authors-information/InformationSection.astro";
+import PortableTextHomeWrapper from "@components/homepage/PortableTextHomeWrapper.astro";
+import CurrentIssues from "@components/homepage/CurrentIssues.astro";
+import Herosection from "@components/homepage/Herosection.astro";
+import PeerReviewStatus from "@components/peer-review-policy/PeerReviewStatus.astro";
+import PortableTextWrapper from "@components/peer-review-policy/PortableTextWrapper.astro";
+import TeamSection from "@components/EditorialBoard/TeamSection.astro";
+import ArchivesWrapper from "@components/archives/ArchivesWrapper.astro";
+import SubmitWrapper from "@components/submit-paper/SubmitWrapper.astro";
 
 export const getComponent = (slug) => {
   switch (slug) {
