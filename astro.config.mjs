@@ -6,7 +6,7 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-    output: 'hybrid',
+    output: 'server',
     integrations: [tailwind(), react(), sanity({
         projectId: "t9xt5xc2",
         dataset: "production",
